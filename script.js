@@ -37,15 +37,35 @@ attack(target){
 shipDestroyed(){
     return this.hull <=0;
 }
-// My ship
-const ussAssemble=(20,5,0.7)
+
+class Game{
+    constructor(){
+        this.ussAssembly= new spaceShip(20,5,0.7);
+        this.aliens=[];
+        this.generateAliens();   
+    }
+}
 
 // Alien Ships
-const alienShips[]; for (let i=0; i<6, i++)
+generateAliens(){
+for (let i=0; i<6, i++){
+    const hull=Math.floor(Math.random()*4)+3;
+    const firepower= Math.floor(Math.random()*3)+2;
+    const accuracy= (Math.floor(Math.random()*3)+6)/10;
+    const alienship= new spaceShip(hull, firepower, accuracy)
+    this.aliens.push(alienShip);
+    }
+}
 
-//  Alien Ship ranged properties 
-this.hull=Math.floor(Math.random()*4)+3;
-this.firepower=Math.floor(Math.random()*3)+2;
-this.accuracy= (Math.floor(Math.random()*3)+6)/10;
+startGame(){
+    console.log("Who will win? The aliens or you?")
+    this.playRound(0)
+}
 
-const ussAssembly= ussAssembly
+playRound(index){
+    if (index>= this.aliens.length){
+        console.log("Congratulations! You won!");
+        return;
+    }
+}
+
