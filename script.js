@@ -34,7 +34,7 @@ attack(target){
     }
 }
 
-shipDestroyed(){
+shipDestroyed() {
     return this.hull <=0;
 }
 
@@ -74,7 +74,7 @@ const currentAlien= this.aliens[index];
 console.log (`/nRound ${index+1}: USS Assembly attacks Alien Ship ${index+1}`);
 this.ussAssembly.attack(currentAlien);
 
-if (currentAlien.isDestroyed()){
+if (currentAlien.shipDestroyed()){
     console.log(`Alien ship ${index+1} destroyed!`);
     const choice =prompt(" Do you want to attack the next ship(a) or retreat (r)?");
     if (choice==="a"){
@@ -88,7 +88,7 @@ if (currentAlien.isDestroyed()){
     console.log(`Alien Ship ${index+1} attacks USS Assembly`);
     currentAlien.attack(this.ussAssembly);
 
-    if(this.ussAssembly.isDestroyed()){
+    if(this.ussAssembly.shipDestroyed()){
         console.log ("Game over! USS Assembly destroyed by alien ship.");
     }else{ 
         this.playRound(index);
